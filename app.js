@@ -5,7 +5,6 @@ function agregarAmigo() {
     let nombreAmigo = document.getElementById('amigo').value;
     if (nombreAmigo && !amigos.includes(nombreAmigo)) {
         amigos.push(nombreAmigo);
-        alert('Amigo agregado con éxito');
         actualizarListaAmigos();
         document.getElementById('amigo').value = '';
     }
@@ -16,6 +15,7 @@ function agregarAmigo() {
         alert('El amigo ya fue agregado');
     }
     console.log(amigos);
+    document.getElementById('resultado').innerHTML = '';
 }
 
 function actualizarListaAmigos() {
@@ -39,6 +39,9 @@ function sortearAmigo() {
 
     console.log('Amigo secreto sorteado:', amigoSecreto);
     mostrarResultado(amigoSecreto);
+
+    amigos = [];
+    actualizarListaAmigos();
 }
 
 function mostrarResultado(amigoSecreto) {
